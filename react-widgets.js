@@ -203,131 +203,7 @@
     );
   }
 
-  function OpenRolesWidget() {
-    const roles = [
-      { title: 'Scripter', tag: 'Scripting', focus: 'Combat, systems, progression' },
-      { title: 'Environment Modeler', tag: 'Modeling', focus: 'Maps, props, vehicles' },
-      { title: 'GFX Artist', tag: 'Art', focus: 'Thumbnails, logos, UI visuals' },
-      { title: 'Animator', tag: 'Animation', focus: 'Characters, weapons, emotes' },
-    ];
 
-    const [selectedTag, setSelectedTag] = useState('All');
-
-    const tags = ['All', 'Scripting', 'Modeling', 'Art', 'Animation'];
-    const filtered =
-      selectedTag === 'All'
-        ? roles
-        : roles.filter((r) => r.tag.toLowerCase() === selectedTag.toLowerCase());
-
-    return React.createElement(
-      'div',
-      {
-        style: {
-          borderRadius: '16px',
-          border: '1px solid rgba(148,163,184,0.35)',
-          background: 'linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.8))',
-          padding: '20px 22px',
-          maxWidth: '640px',
-          margin: '0 auto 26px',
-        },
-      },
-      React.createElement(
-        'div',
-        {
-          style: {
-            display: 'flex',
-            justifyContent: 'space-between',
-            gap: '14px',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            marginBottom: '10px',
-          },
-        },
-        React.createElement(
-          'div',
-          { style: { fontSize: '14px', fontWeight: 600, color: '#e5e7eb' } },
-          'Open collaboration roles'
-        ),
-        React.createElement(
-          'div',
-          { style: { display: 'flex', gap: '6px', flexWrap: 'wrap' } },
-          tags.map((tag) =>
-            React.createElement(
-              'button',
-              {
-                key: tag,
-                type: 'button',
-                onClick: () => setSelectedTag(tag),
-                style: {
-                  borderRadius: '999px',
-                  border:
-                    tag === selectedTag
-                      ? '1px solid rgba(74,222,128,0.9)'
-                      : '1px solid rgba(55,65,81,0.9)',
-                  background:
-                    tag === selectedTag ? 'rgba(22,163,74,0.18)' : 'rgba(15,23,42,0.9)',
-                  color: tag === selectedTag ? '#bbf7d0' : '#9ca3af',
-                  fontSize: '11px',
-                  padding: '4px 10px',
-                  cursor: 'pointer',
-                  fontWeight: 600,
-                },
-              },
-              tag
-            )
-          )
-        )
-      ),
-      React.createElement(
-        'div',
-        null,
-        filtered.map((role, i) =>
-          React.createElement(
-            'div',
-            {
-              key: role.title,
-              style: {
-                padding: '10px 0',
-                borderTop: i === 0 ? 'none' : '1px solid rgba(31,41,55,0.9)',
-                display: 'flex',
-                justifyContent: 'space-between',
-                gap: '10px',
-                flexWrap: 'wrap',
-              },
-            },
-            React.createElement(
-              'div',
-              null,
-              React.createElement(
-                'div',
-                { style: { fontSize: '13px', fontWeight: 600, color: '#e5e7eb' } },
-                role.title
-              ),
-              React.createElement(
-                'div',
-                { style: { fontSize: '12px', color: '#9ca3af', marginTop: '2px' } },
-                role.focus
-              )
-            ),
-            React.createElement(
-              'span',
-              {
-                style: {
-                  alignSelf: 'center',
-                  borderRadius: '999px',
-                  border: '1px solid rgba(55,65,81,0.9)',
-                  padding: '3px 9px',
-                  fontSize: '11px',
-                  color: '#9ca3af',
-                },
-              },
-              role.tag
-            )
-          )
-        )
-      )
-    );
-  }
 
   document.addEventListener('DOMContentLoaded', function () {
     const highlightsRootEl = document.getElementById('react-highlights-widget');
@@ -335,12 +211,7 @@
       const root = ReactDOM.createRoot(highlightsRootEl);
       root.render(React.createElement(HighlightsWidget));
     }
-
-    const rolesRootEl = document.getElementById('react-open-roles-widget');
-    if (rolesRootEl) {
-      const root = ReactDOM.createRoot(rolesRootEl);
-      root.render(React.createElement(OpenRolesWidget));
-    }
   });
 })();
+
 
