@@ -314,6 +314,9 @@
     <div class="scroll-hint"><span>Scroll to explore</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
   </section>
 
+  <div id="react-highlights-widget"></div>
+  <div id="react-open-roles-widget"></div>
+ 
   <!-- STATS -->
   <section class="stats-section">
     <div class="stats-grid">
@@ -719,7 +722,14 @@
   </div>
 </div>
 
+   <!-- React and ReactDOM libraries -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Your widget script -->
+  <script type="module" src="./react-widgets.js"></script>
 <script>
+ 
 // STARS
 (function() {
   const canvas = document.getElementById('stars');
